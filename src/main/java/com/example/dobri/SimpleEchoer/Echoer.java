@@ -27,9 +27,12 @@ public class Echoer extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath()).append(request.getQueryString());
+		String user = request.getRemoteUser();
+		if(user != null) {
+			response.getWriter().append("Query was: ").append(request.getQueryString())
+				.append(". Current user: " + user );
+		}
 		
-	
 	}
 
 	/**
