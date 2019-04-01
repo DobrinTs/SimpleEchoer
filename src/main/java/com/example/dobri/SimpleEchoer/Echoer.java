@@ -29,7 +29,7 @@ public class Echoer extends HttpServlet {
 		// TODO Auto-generated method stub
 		String user = request.getRemoteUser();
 		if(user != null) {
-			response.getWriter().append("Query was: ").append(request.getQueryString())
+			response.getWriter().append("Query was: ").append(request.getParameter("text"))
 				.append(". Current user: " + user );
 		}
 		
