@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "EchoMessage")
+@XmlRootElement(name = "echo")
 public class EchoMessage implements Serializable{
 
 	private static final long serialVersionUID = 1L;

@@ -10,12 +10,10 @@ import javax.ws.rs.core.MediaType;
  
 
 @Produces(MediaType.APPLICATION_JSON)
-//@Produces(MediaType.APPLICATION_XML)
-
 public class EchoerService {
 	
 	@GET
-    @Path("/echo")
+    @Path("/")
     public EchoMessage getEchoMessage(@Context HttpServletRequest request, @QueryParam("text") String text) {
     	String user = request.getRemoteUser();
 		EchoMessage message = new EchoMessage(user, text);

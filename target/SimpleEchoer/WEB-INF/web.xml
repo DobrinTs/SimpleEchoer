@@ -16,23 +16,15 @@
 		<!-- <init-param> <param-name>javax.ws.rs.Application</param-name> <param-value>com.example.dobri.SimpleEchoer.EchoerService</param-value> 
 			</init-param> -->
 		<init-param>
-			<param-name>jaxrs.serviceClasses</param-name>
-			<param-value>
-				com.example.dobri.SimpleEchoer.EchoerService
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>com.example.dobri.SimpleEchoer.EchoerApplication
 			</param-value>
 		</init-param>
-		<init-param>
-			<param-name>jaxrs.providers</param-name>
-			<param-value>
-				org.apache.cxf.jaxrs.provider.JSONProvider
-				(writeXsiType=false)
-			</param-value>
-		</init-param>
-		<!-- <load-on-startup>1</load-on-startup> -->
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
-		<url-pattern>/api/v1/*</url-pattern>
+		<url-pattern>/echo/*</url-pattern>
 	</servlet-mapping>
 
 	<login-config>
