@@ -13,8 +13,6 @@
 		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
 		<servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet
 		</servlet-class>
-		<!-- <init-param> <param-name>javax.ws.rs.Application</param-name> <param-value>com.example.dobri.SimpleEchoer.EchoerService</param-value> 
-			</init-param> -->
 		<init-param>
 			<param-name>javax.ws.rs.Application</param-name>
 			<param-value>com.example.dobri.SimpleEchoer.EchoerApplication
@@ -24,7 +22,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
-		<url-pattern>/echo/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<login-config>

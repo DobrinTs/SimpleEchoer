@@ -22,7 +22,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
-		<url-pattern>/echo/*</url-pattern>
+		<url-pattern>/api/v1/*</url-pattern>
 	</servlet-mapping>
 
 	<login-config>
@@ -31,8 +31,7 @@
 	<security-constraint>
 		<web-resource-collection>
 			<web-resource-name>Protected Area</web-resource-name>
-			<url-pattern>/index.jsp</url-pattern>
-			<url-pattern>/echo</url-pattern>
+			<url-pattern>/*</url-pattern>
 		</web-resource-collection>
 		<auth-constraint>
 			<!-- Role Everyone will not be assignable -->

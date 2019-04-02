@@ -2,9 +2,6 @@ package com.example.dobri.SimpleEchoer;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-@XmlRootElement(name = "echo")
 public class EchoMessage implements Serializable{
 
 	private static final long serialVersionUID = 1L;
