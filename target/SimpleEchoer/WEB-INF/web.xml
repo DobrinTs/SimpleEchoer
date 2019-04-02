@@ -1,41 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <!DOCTYPE xml>
- 
+
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:SchemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
-	id="WebApp_ID"
-	version="4.0">
-	
-  <display-name>Archetype Created Web Application</display-name>
-  
-  <servlet>
-  	<servlet-name>Echoer</servlet-name>
-  	<display-name>Echoer</display-name>
-  	<description></description>
-  	<servlet-class>com.example.dobri.SimpleEchoer.Echoer</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Echoer</servlet-name>
-  	<url-pattern>/Echoer</url-pattern>
-  </servlet-mapping>
-  
-  <login-config>
-  	<auth-method>FORM</auth-method>
-  </login-config>
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>Protected Area</web-resource-name>
-      <url-pattern>/index.jsp</url-pattern>
-      <url-pattern>/Echoer</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <!-- Role Everyone will not be assignable -->
-      <role-name>Everyone</role-name>
-    </auth-constraint>
-  </security-constraint>
-  <security-role>
-    <description>All SAP Cloud Platform users</description>
-    <role-name>Everyone</role-name>
-  </security-role>
+	id="WebApp_ID" version="4.0">
+
+	<display-name>Archetype Created Web Application</display-name>
+
+	<servlet>
+		<display-name>CXFNonSpringJaxrsServlet</display-name>
+		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
+		<servlet-class>org.apache.cxf.jaxrs.servlet.CXFNonSpringJaxrsServlet
+		</servlet-class>
+		<!-- <init-param> <param-name>javax.ws.rs.Application</param-name> <param-value>com.example.dobri.SimpleEchoer.EchoerService</param-value> 
+			</init-param> -->
+		<init-param>
+			<param-name>jaxrs.serviceClasses</param-name>
+			<param-value>
+				com.example.dobri.SimpleEchoer.EchoerService
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>jaxrs.providers</param-name>
+			<param-value>
+				org.apache.cxf.jaxrs.provider.JSONProvider
+				(writeXsiType=false)
+			</param-value>
+		</init-param>
+		<!-- <load-on-startup>1</load-on-startup> -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CXFNonSpringJaxrsServlet</servlet-name>
+		<url-pattern>/api/v1/*</url-pattern>
+	</servlet-mapping>
+
+	<login-config>
+		<auth-method>FORM</auth-method>
+	</login-config>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Protected Area</web-resource-name>
+			<url-pattern>/index.jsp</url-pattern>
+			<url-pattern>/echo</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<!-- Role Everyone will not be assignable -->
+			<role-name>Everyone</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<description>All SAP Cloud Platform users</description>
+		<role-name>Everyone</role-name>
+	</security-role>
 </web-app>

@@ -1,1 +1,2 @@
-com\example\dobri\SimpleEchoer\Echoer.class
+com/example/dobri/SimpleEchoer/EchoMessage.class
+com/example/dobri/SimpleEchoer/EchoerService.class
